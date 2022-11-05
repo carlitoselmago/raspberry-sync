@@ -22,7 +22,7 @@ fi
 sleep 5
 cd /home/pi
 
-#copy any mp4 file found in external drives 
+#copy any mp4 file found in external drives
 video=$(find /media -type f -name "*.mp4" | head -n 1)
 if [ ! -z "$video" ]
 then
@@ -35,6 +35,6 @@ fi
 
 sleep 25
 
-#play 
+#play -luv for slave, -muv for master
 omxplayer-sync -luv -b --no-osd video.mp4
 exit 0
