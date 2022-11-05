@@ -9,7 +9,7 @@ Otherwise just copy your video file in home folder as "video.mp4"
 default config is slave player mode, edit rc.local to make player as the master player
 
 ## Requirements
-- Legacy version of raspbian
+- Legacy version of raspbian (debian buster)
 - omcplayer-sync
 - usbmount
 
