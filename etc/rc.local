@@ -35,6 +35,6 @@ fi
 
 sleep 25
 
-#play -luv for slave, -muv for master
-omxplayer-sync -luv -b --no-osd video.mp4
+#play -lu for slave, -mu for master
+omxplayer-sync -lu -b --no-osd video.mp4
 exit 0
