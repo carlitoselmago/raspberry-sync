@@ -15,10 +15,10 @@ default config is slave player mode, edit rc.local to make player as the master 
 
 ## Install Instructions
 - Install legacy raspbian version
-- execute installomxplayer-sync.sh
-- execute INSTALL.sh
+- execute sh installomxplayer-sync.sh
+- execute sudo sh INSTALL.sh
 
-- Modify master player with attrbutes, see etc/rc.local for more info, default is slave
+- Modify master player with attributes, see etc/rc.local for more info, default is slave
 
 ### Notes
 - Add a file named "ssh" in /boot folder to activate ssh service (not active by default)
