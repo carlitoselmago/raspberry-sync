@@ -15,7 +15,7 @@ default config is slave player mode, edit rc.local to make player as the master 
 
 ## Install Instructions
 - Install legacy raspbian version
-- execute sudo sh installomxplayer-sync.sh
+- execute sudo sh installomxplayer-sync.sh for slave ethernet version and installomxplayer-sync-wifi.sh for wifi slave version
 - execute sudo sh INSTALL.sh
 
 - Modify master player with attributes, see etc/rc.local for more info, default is slave
