@@ -13,7 +13,12 @@
 # CODE FOR CHILD PLAYER, change -muv for master
 # https://www.khm.de/~sievers/net/omxplayer-sync.html
 
-sleep 5
+sleep 30
+
+#restart ethernet so it gives time for router to boot
+ip link set eth0 down 
+ip link set eth0 up
+
 # Print the IP address
 _IP=$(hostname -I) || true
 if [ "$_IP" ]; then
@@ -36,5 +41,6 @@ fi
 sleep 25
 
 #play -lu for slave, -mu for master
+#omxplayer -b --loop video.mp4
 omxplayer-sync -lu -b --no-osd video.mp4
 exit 0
