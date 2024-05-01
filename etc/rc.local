@@ -15,9 +15,12 @@
 
 sleep 30
 
-#restart ethernet so it gives time for router to boot
-ip link set eth0 down 
-ip link set eth0 up
+# Restart ethernet only if it exists, to give time for the router to boot
+if [ -d /sys/class/net/eth0 ]; then
+    ip link set eth0 down
+    sleep 5  # Wait for 5 seconds
+    ip link set eth0 up
+fi
 
 # Print the IP address
 _IP=$(hostname -I) || true
