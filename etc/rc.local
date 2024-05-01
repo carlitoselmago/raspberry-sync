@@ -56,7 +56,7 @@ fi
 
 sleep 25
 
-#play -lu for slave, -mu for master
-#omxplayer -b --loop video.mp4
+#play -lu for slave, -mu for master (don't use omxplayer for single player since it wont play audio on both hdmi and jack)
+#omxplayer-sync -b --loop video.mp4
 omxplayer-sync -lu -b --no-osd video.mp4
 exit 0
