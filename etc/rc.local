@@ -25,7 +25,7 @@ fi
 # Print the IP address
 _IP=$(hostname -I) || true
 if [ "$_IP" ]; then
-  printf "My IP address is %s\n" "$_IP"
+  #printf "My IP address is %s\n" "$_IP"
   # Set font size if possible (this part is optional and may not work on all consoles)
   setfont /usr/share/consolefonts/Uni2-Terminus32x16.psf.gz
   # Center the text on the screen
