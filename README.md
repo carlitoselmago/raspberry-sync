@@ -10,7 +10,7 @@ default config is slave player mode, edit rc.local to make player as the master 
 
 ## Requirements
 - Legacy version of raspbian (debian buster)
-- omcplayer-sync
+- omxplayer-sync
 - usbmount
 
 ## Install Instructions
