@@ -14,3 +14,6 @@ sudo sed -i '/^#hdmi_mode/c\hdmi_mode=16' /boot/config.txt
 
 #copy rc.local
 cp etc/rc.local /etc/rc.local
+
+#copy video to home
+cp video.mp4 ../video.mp4
