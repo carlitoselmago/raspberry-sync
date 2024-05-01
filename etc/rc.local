@@ -31,7 +31,7 @@ if [ "$_IP" ]; then
   # Center the text on the screen
   tput clear
   tput cup 10 10
-  echo -e "\e[1;31mYour IP Address is: $IP\e[0m"
+  echo -e "\e[1;31mYour IP Address is: $_IP\e[0m"
     
   # Wait for 10 seconds
   sleep 10
