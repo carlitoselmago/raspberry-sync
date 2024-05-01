@@ -26,9 +26,18 @@ fi
 _IP=$(hostname -I) || true
 if [ "$_IP" ]; then
   printf "My IP address is %s\n" "$_IP"
-
-  # Display the IP address in a Zenity info dialog
-  DISPLAY=:0 zenity --info --text="Your IP Address is $IP" --title="IP Address" --timeout=10
+  # Set font size if possible (this part is optional and may not work on all consoles)
+  setfont /usr/share/consolefonts/Uni2-Terminus32x16.psf.gz
+  # Center the text on the screen
+  tput clear
+  tput cup 10 10
+  echo -e "\e[1;31mYour IP Address is: $IP\e[0m"
+    
+  # Wait for 10 seconds
+  sleep 10
+    
+  # Reset the display settings
+  setterm -default
 
 fi
 sleep 5
