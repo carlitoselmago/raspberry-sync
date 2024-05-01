@@ -1,4 +1,4 @@
-# raspberrypi-synch
+# raspberry-sync
 
 Autoplays videos in sync with other raspberrys on the same network, works with direct ethernet conexion between 2 raspberrys or more in a router/hub
 Use ethernet cables to ensure stability
