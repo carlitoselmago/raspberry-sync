@@ -23,6 +23,10 @@ ip link set eth0 up
 _IP=$(hostname -I) || true
 if [ "$_IP" ]; then
   printf "My IP address is %s\n" "$_IP"
+
+  # Display the IP address in a Zenity info dialog
+  DISPLAY=:0 zenity --info --text="Your IP Address is $IP" --title="IP Address" --timeout=10
+
 fi
 sleep 5
 cd /home/pi
