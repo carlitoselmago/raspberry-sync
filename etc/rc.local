@@ -13,48 +13,46 @@
 # CODE FOR CHILD PLAYER, change -muv for master
 # https://www.khm.de/~sievers/net/omxplayer-sync.html
 
-sleep 30
+# Initial sleep to allow basic system initialization
+sleep 5
 
-# Restart ethernet only if it exists, to give time for the router to boot
-if [ -d /sys/class/net/eth0 ]; then
-    ip link set eth0 down
-    sleep 5  # Wait for 5 seconds
-    ip link set eth0 up
-fi
+# Function to check for network connectivity
+check_network() {
+    _IP=$(hostname -I) || true
+    if [ -z "$_IP" ]; then
+        echo "Network not ready, waiting..."
+        return 1
+    else
+        echo "Network is ready. IP address: $_IP"
+        return 0
+    fi
+}
+
+# Wait for network to be ready
+while ! check_network; do
+    sleep 5
+done
 
 # Print the IP address
 _IP=$(hostname -I) || true
 if [ "$_IP" ]; then
-  #printf "My IP address is %s\n" "$_IP"
-  # Set font size if possible (this part is optional and may not work on all consoles)
-  setfont /usr/share/consolefonts/Uni2-Terminus32x16.psf.gz
-  # Center the text on the screen
-  tput clear
-  tput cup 10 10
-  echo -e "\e[1;31mYour IP Address is: $_IP\e[0m"
-    
-  # Wait for 10 seconds
-  sleep 10
-    
-  # Reset the display settings
-  setterm -default
-
+  printf "My IP address is %s\n" "$_IP"
 fi
-sleep 5
+
+# Change to the home directory
 cd /home/pi
 
-#copy any mp4 file found in external drives
+# Copy any mp4 file found in external drives
 video=$(find /media -type f -name "*.mp4" | head -n 1)
-if [ ! -z "$video" ]
-then
-echo "Found video" $video
-echo "coping to local storage"
-cp "$video" "./video.mp4"
+if [ ! -z "$video" ]; then
+    echo "Found video: $video"
+    cp "$video" "./video.mp4"
 else
-echo "No videos found in external drives"
+    echo "No videos found"
 fi
 
-sleep 25
+# Additional sleep to ensure all devices are ready
+sleep 45
 
 #play -lu for follower, -mu for main (don't use omxplayer for single player since it wont play audio on both hdmi and jack)
 #omxplayer-sync -b --loop video.mp4
